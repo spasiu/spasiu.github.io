@@ -7,8 +7,8 @@
   <meta name="description" content="Put the world back together: drag each of 197 countries to its place on a globe.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23133029'/%3E%3Ccircle cx='16' cy='16' r='9.5' fill='none' stroke='%23ece4cf' stroke-width='2'/%3E%3Cpath d='M6.5 16h19M16 6.5c-4.4 5.2-4.4 13.8 0 19M16 6.5c4.4 5.2 4.4 13.8 0 19' fill='none' stroke='%23ece4cf' stroke-width='1.6'/%3E%3C/svg%3E">
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..700&amp;family=EB+Garamond:ital,wght@1,500&amp;display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="./assets/app-hcWV826W.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DnhN08PK.css">
+  <script type="module" crossorigin src="./assets/app-Db5jmROa.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Cc6CZsOL.css">
 </head>
 <body>
   <div class="app" id="app">
@@ -36,7 +36,7 @@
       <section class="inspector" id="inspector" aria-label="Country in hand" hidden>
         <div class="label">
           <div aria-live="polite">
-            <h2 class="country-name" id="country-name"></h2>
+            <h2 class="country-name"><img class="country-flag" id="country-flag" alt="" aria-hidden="true" width="24" height="18" decoding="async" draggable="false" hidden><span id="country-name"></span></h2>
             <p class="country-native" id="country-native"></p>
             <p class="country-facts" id="country-facts"></p>
             <p class="country-status" id="country-status" hidden></p>
@@ -143,11 +143,12 @@
         <h3>About the map</h3>
         <p class="quiet">Shapes from <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Natural Earth</a> (1:50 million, public domain). Natural Earth draws borders as they are held on the ground; this map gives Crimea to Ukraine and the Golan Heights to Syria, as most countries do, and draws Somaliland and Northern Cyprus as part of Somalia and Cyprus.</p>
         <h3>About the names and numbers</h3>
-        <p class="quiet">Names and capitals in English, French and each country's own language come from <a href="https://www.wikidata.org/" target="_blank" rel="noopener noreferrer">Wikidata</a>, checked by hand. Where a country has several official languages, its own language here is the most widely spoken of them. Populations are the World Bank's figures for 2025 (<a href="https://data.worldbank.org/indicator/SP.POP.TOTL" target="_blank" rel="noopener noreferrer">World Development Indicators</a>, CC BY 4.0), except Taiwan (its Ministry of the Interior, end of 2025) and Vatican City (the Vatican's own count of residents).</p>
+        <p class="quiet">Names and capitals in English, French and each country's own language come from <a href="https://www.wikidata.org/" target="_blank" rel="noopener noreferrer">Wikidata</a>, checked by hand. Where a country has several official languages, its own language here is the most widely spoken of them. Populations are the World Bank's figures for 2025 (<a href="https://data.worldbank.org/indicator/SP.POP.TOTL" target="_blank" rel="noopener noreferrer">World Development Indicators</a>, CC BY 4.0), except Taiwan (its Ministry of the Interior, end of 2025) and Vatican City (the Vatican's own count of residents). Flags are drawn by <a href="https://github.com/lipis/flag-icons" target="_blank" rel="noopener noreferrer">flag-icons</a> (Panayiotis Lipiridis and contributors, MIT License).</p>
       </section>
     </div>
   </dialog>
 
   <canvas class="ghost" id="ghost" hidden></canvas>
+  <div class="cell-tip" id="cell-tip" role="tooltip" hidden></div>
 </body>
 </html>
