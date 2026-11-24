@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>197 Countries</title>
+  <meta name="description" content="Put the world back together: drag each of 197 countries to its place on a globe.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23133029'/%3E%3Ccircle cx='16' cy='16' r='9.5' fill='none' stroke='%23ece4cf' stroke-width='2'/%3E%3Cpath d='M6.5 16h19M16 6.5c-4.4 5.2-4.4 13.8 0 19M16 6.5c4.4 5.2 4.4 13.8 0 19' fill='none' stroke='%23ece4cf' stroke-width='1.6'/%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..700&amp;family=EB+Garamond:ital,wght@1,500&amp;display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/app-hcWV826W.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DnhN08PK.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="bar">
+      <p class="tally" aria-live="polite">
+        <span class="tally-count" id="tally-count">0</span>
+        <span class="tally-rest">of <span id="tally-total">197</span> countries in place</span>
+      </p>
+      <button class="btn" id="open-options" type="button">Options</button>
+      <div class="progress" id="progress" role="progressbar" aria-label="Countries in place" aria-valuemin="0" aria-valuemax="197" aria-valuenow="0"><i id="progress-fill"></i></div>
+    </header>
+
+    <main class="stage" id="stage">
+      <canvas id="view" tabindex="0" aria-label="The globe. Drag to turn it, pinch or scroll to zoom."></canvas>
+
+      <nav class="views" id="views" aria-label="Turn the globe to a region">
+        <button type="button" data-view="africa">Africa</button>
+        <button type="button" data-view="americas">Americas</button>
+        <button type="button" data-view="asia">Asia</button>
+        <button type="button" data-view="europe">Europe</button>
+        <button type="button" data-view="oceania">Oceania</button>
+        <button type="button" data-view="">Globe</button>
+      </nav>
+
+      <section class="inspector" id="inspector" aria-label="Country in hand" hidden>
+        <div class="label">
+          <div aria-live="polite">
+            <h2 class="country-name" id="country-name"></h2>
+            <p class="country-native" id="country-native"></p>
+            <p class="country-facts" id="country-facts"></p>
+            <p class="country-status" id="country-status" hidden></p>
+            <p class="country-tip" id="country-tip"></p>
+          </div>
+          <details class="about" id="about" hidden>
+            <summary>Names, capital, population</summary>
+            <table class="names">
+              <thead><tr><th scope="col"><span class="visually-hidden">Language</span></th><th scope="col">Country</th><th scope="col">Capital</th></tr></thead>
+              <tbody id="names-body"></tbody>
+            </table>
+            <p class="about-note" id="capital-note" hidden></p>
+            <p class="about-pop" id="about-pop"></p>
+            <a class="about-link" id="about-link" href="https://en.wikipedia.org/" target="_blank" rel="noopener noreferrer">Read more on Wikipedia</a>
+          </details>
+        </div>
+        <div class="lens" id="lens" role="img" aria-label="The country in hand, magnified, with north up">
+          <canvas id="lens-canvas"></canvas>
+          <svg class="rim" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3.2" stroke-dasharray="0.7 7.329" opacity=".7"/>
+            <path d="M50 1.5 46.6 8.6h6.8z" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="actions">
+          <button class="btn" id="hint" type="button">Show me where</button>
+          <button class="btn" id="back" type="button">Put it back</button>
+        </div>
+      </section>
+
+      <p class="coach" id="coach" hidden>Pull a country out of the drawer and onto the globe.</p>
+      <div class="beacon" id="beacon" hidden></div>
+      <div class="locator" id="locator" hidden></div>
+      <div class="set-label" id="set-label" hidden></div>
+
+      <section class="done" id="done" hidden>
+        <h2>All 197 countries are in place</h2>
+        <p id="done-summary"></p>
+        <button class="btn btn-solid" id="again" type="button">Start again</button>
+      </section>
+
+      <div class="loading" id="loading" role="status">
+        <p id="loading-text">Laying out 197 countries</p>
+        <div class="loading-track"><i id="loading-bar"></i></div>
+      </div>
+    </main>
+
+    <aside class="drawer" id="drawer" aria-label="Drawer of countries">
+      <div class="chips" id="chips" role="group" aria-label="Show countries from"></div>
+      <div class="cells" id="cells"></div>
+      <p class="drawer-empty" id="drawer-empty" hidden></p>
+    </aside>
+  </div>
+
+  <dialog class="sheet" id="options" aria-labelledby="options-title">
+    <div class="sheet-body">
+      <header class="sheet-head">
+        <h2 id="options-title">Options</h2>
+        <button class="btn" id="close-options" type="button">Done</button>
+      </header>
+
+      <section>
+        <h3>How close a country has to be</h3>
+        <div class="modes" id="modes"></div>
+      </section>
+
+      <section>
+        <label class="toggle">
+          <input type="checkbox" id="names">
+          <span><strong>Show country names</strong><small>Turn this off to know each country by its shape. Its names, capital and population appear once it is in place.</small></span>
+        </label>
+      </section>
+
+      <section>
+        <h3>Handling</h3>
+        <ul class="howto">
+          <li>Drag a country out of the drawer and onto the globe. On a touch screen, pull it across the drawer toward the globe, or hold it for a moment and then drag it anywhere.</li>
+          <li>A country keeps north up wherever you carry it, so only where it goes is up to you. It sets when you let go of it near its place.</li>
+          <li>Drag anywhere else to turn the globe, and flick to keep it turning. North always stays up.</li>
+          <li>Pinch or scroll to zoom. On a trackpad, swipe sideways with two fingers to turn the globe. The arrow keys turn it too, and + and − zoom.</li>
+          <li>With a country in hand, a tap on the globe puts it on that spot. With nothing in hand, a tap on a set country brings up its names, capital and population. Double-tap to zoom in.</li>
+          <li>The drawer pictures every country to one scale that shrinks big countries more than small ones, so a bigger country always looks bigger. A magnifier beside an area marks a country drawn larger than that so you can see it.</li>
+          <li>Some countries have parts far from the rest (Hawaii, French Guiana, the Galápagos). They wait on the globe and fill in when their country is set.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Saving</h3>
+        <p class="quiet" id="save-note"></p>
+      </section>
+
+      <section>
+        <h3>Start again</h3>
+        <p class="quiet" id="restart-note"></p>
+        <button class="btn" id="restart" type="button">Start again</button>
+        <div class="confirm" id="restart-confirm" hidden>
+          <button class="btn btn-solid" id="restart-yes" type="button">Clear the globe and start again</button>
+          <button class="btn" id="restart-no" type="button">Keep going</button>
+        </div>
+      </section>
+
+      <section>
+        <h3>Which countries</h3>
+        <p class="quiet">The 197 pieces are the 193 member states of the United Nations, its two observer states (Palestine and Vatican City), Kosovo and Taiwan. Land that belongs to no piece (Antarctica, Greenland, Western Sahara, and dependencies such as Puerto Rico or New Caledonia) is drawn in grey and is not part of the game; tap it to see its name.</p>
+        <h3>About the map</h3>
+        <p class="quiet">Shapes from <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Natural Earth</a> (1:50 million, public domain). Natural Earth draws borders as they are held on the ground; this map gives Crimea to Ukraine and the Golan Heights to Syria, as most countries do, and draws Somaliland and Northern Cyprus as part of Somalia and Cyprus.</p>
+        <h3>About the names and numbers</h3>
+        <p class="quiet">Names and capitals in English, French and each country's own language come from <a href="https://www.wikidata.org/" target="_blank" rel="noopener noreferrer">Wikidata</a>, checked by hand. Where a country has several official languages, its own language here is the most widely spoken of them. Populations are the World Bank's figures for 2025 (<a href="https://data.worldbank.org/indicator/SP.POP.TOTL" target="_blank" rel="noopener noreferrer">World Development Indicators</a>, CC BY 4.0), except Taiwan (its Ministry of the Interior, end of 2025) and Vatican City (the Vatican's own count of residents).</p>
+      </section>
+    </div>
+  </dialog>
+
+  <canvas class="ghost" id="ghost" hidden></canvas>
+</body>
+</html>

@@ -12,6 +12,7 @@ work/example-case-study.html  template for a case study (with an architecture di
 writing/example-note.html     template for a note or guide (doubles as instructions)
 404.html                      "Not in service" page, with a cord you can swing
 bones/                        206 Bones, the built game (from the bones-206 project)
+countries/                    197 Countries, the built globe game
 assets/css/site.css           all styles; design tokens are at the top
 assets/js/site.js             lights on/off, nav lamps, clock, the cord board, the 404 cord
 assets/fonts/                 Bricolage Grotesque and Newsreader (self-hosted, OFL licence files included)
@@ -60,6 +61,12 @@ Copy `work/example-case-study.html` or `writing/example-note.html`, rename the c
 
 To update it, rebuild the project, delete `bones/assets/`, and copy in the new `dist/index.html` and `dist/assets/`. The asset file names include a hash of their contents, so old files would otherwise pile up.
 
+## 197 Countries
+
+`countries/` holds the built 197 Countries game, served at `https://spasiu.github.io/countries/` and linked from its card in Projects. It was copied in as built. The game credits its data under Options: shapes from Natural Earth (public domain), names and capitals from Wikidata, and populations from the World Bank (CC BY 4.0).
+
+To update it, delete `countries/assets/` and copy in the new `index.html` and `assets/`, the same way as 206 Bones.
+
 ## The cord board
 
 - **Jacks** are any element with `data-jack="Label"`. In the first row they're links (`<a href="#work">`), so a click goes to that section. The second row is for play. Its labels are Montréal-area phone codes (514, 438, 263, 450, 579).
@@ -88,7 +95,7 @@ The two typefaces are **Bricolage Grotesque** for headings and interface, and **
 
 ## Privacy
 
-There are no analytics, cookies or trackers. The site's fonts are served from `assets/fonts`, so the site makes no outside requests. The one exception is the 206 Bones game, which loads its two fonts from Google Fonts. Browser storage holds only the light/dark choice and the game's progress, both in `localStorage`.
+There are no analytics, cookies or trackers. The site's fonts are served from `assets/fonts`, so the site makes no outside requests. The exceptions are the two games, 206 Bones and 197 Countries, which load their fonts from Google Fonts. Browser storage holds only the light/dark choice and each game's progress, all in `localStorage`.
 
 ## Credits
 
