@@ -1,75 +1,351 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Startup Name - Empowering B2B SaaS Companies with Real-Time Analytics</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- EDIT: title and description show in search results and link previews. -->
+  <title>Anastasi Bakolias — solution architect and engineering leader</title>
+  <meta name="description" content="Anastasi Bakolias designs the systems behind customer support: contact centers, help desks, and the automation and AI that connect them. Based in Montréal.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#E3E7E1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141A17" media="(prefers-color-scheme: dark)">
+
+  <!-- Link previews (LinkedIn, Slack, etc.). These assume the site is published at spasiu.github.io.
+       EDIT: if you move it to your own domain, change both addresses. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Anastasi Bakolias">
+  <meta property="og:description" content="Solution architect and engineering leader in Montréal. Contact centers, support platforms, automation and AI.">
+  <meta property="og:url" content="https://spasiu.github.io/">
+  <meta property="og:image" content="https://spasiu.github.io/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>
+    /* Apply a saved light/dark choice before the page paints. */
+    (function () { try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {} })();
+  </script>
+  <script src="assets/js/site.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Your Startup Name</h1>
-        <p>Empowering B2B SaaS Companies with Real-Time Analytics</p>
-    </header>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <div class="container">
-        <section>
-            <h2>Welcome to Your Startup Name</h2>
-            <p>At Your Startup Name, we specialize in delivering robust reporting solutions for B2B SaaS companies. Our platform enables you to seamlessly create and share powerful analytics dashboards with your customers, helping them to make data-driven decisions and achieve their business goals.</p>
-        </section>
-
-        <section>
-            <h2>Key Features</h2>
-            <div class="feature">
-                <h3>Intuitive Dashboards</h3>
-                <p>Effortlessly create and customize dynamic dashboards that provide real-time insights into your customers' data.</p>
-            </div>
-            <div class="feature">
-                <h3>Automated Analytics Emails</h3>
-                <p>Schedule and send comprehensive analytics reports directly to your customers' inboxes, keeping them informed and engaged.</p>
-            </div>
-            <div class="feature">
-                <h3>Scalable Solutions</h3>
-                <p>Designed to grow with your business, our platform supports an increasing number of users and data sources without compromising performance.</p>
-            </div>
-            <div class="feature">
-                <h3>Secure Data Handling</h3>
-                <p>We prioritize data security and compliance, ensuring your customers' information is protected with industry-leading practices.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Why Choose Your Startup Name?</h2>
-            <div class="feature">
-                <h3>Boost Customer Retention</h3>
-                <p>Provide your customers with the tools they need to understand and act on their data, fostering long-term relationships.</p>
-            </div>
-            <div class="feature">
-                <h3>Increase Efficiency</h3>
-                <p>Save time and resources by automating reporting processes, allowing you to focus on what matters most – growing your business.</p>
-            </div>
-            <div class="feature">
-                <h3>Gain a Competitive Edge</h3>
-                <p>Stand out from the competition with advanced analytics capabilities that demonstrate your commitment to customer success.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>What Our Clients Say</h2>
-            <p><em>"The dashboards from Your Startup Name have revolutionized the way we interact with our data. Our customers are thrilled with the insights they're gaining." — Jane Doe, CEO of Example SaaS</em></p>
-        </section>
-
-        <section class="cta-buttons">
-            <h2>Get Started Today!</h2>
-            <a href="#">Sign Up for a Free Trial</a>
-            <a href="#">Schedule a Demo</a>
-            <a href="#">Learn More</a>
-        </section>
+  <header class="masthead" data-masthead>
+    <div class="wrap masthead__inner">
+      <a class="masthead__name" href="#top">Anastasi Bakolias</a>
+      <nav class="masthead__nav" aria-label="Sections">
+        <ul>
+          <li><a href="#work" data-nav><span class="lamp" aria-hidden="true"></span>Work</a></li>
+          <li><a href="#writing" data-nav><span class="lamp" aria-hidden="true"></span>Writing</a></li>
+          <li><a href="#projects" data-nav><span class="lamp" aria-hidden="true"></span>Projects</a></li>
+          <li><a href="#elsewhere" data-nav><span class="lamp" aria-hidden="true"></span>Elsewhere</a></li>
+          <li><a href="#contact" data-nav><span class="lamp" aria-hidden="true"></span>Contact</a></li>
+        </ul>
+      </nav>
+      <button class="lights" type="button" data-theme-toggle>Lights off</button>
     </div>
+  </header>
 
-    <footer>
-        <p>Contact Us | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-        <p>Your Startup Name - Empowering Your Data. Empowering Your Business.</p>
-    </footer>
+  <main id="main">
+
+    <!-- ============ Hero ============ -->
+    <section class="wrap hero" id="top" aria-labelledby="hero-name">
+      <div class="hero__text">
+        <h1 class="hero__name" id="hero-name"><span>Anastasi</span> <span>Bakolias</span></h1>
+        <!-- EDIT: one line on what you do, then one sentence on why it matters. -->
+        <p class="hero__role">Solution architect and engineering leader in Montréal</p>
+        <p class="hero__lede">I design the systems behind customer support: contact centers, help desks, and the automation and AI that connect them to the people on both ends of the line.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="mailto:anastasi@dev3b.com">Email me</a>
+          <a class="button" href="https://www.linkedin.com/in/spasiu">View my CV</a>
+        </div>
+        <!-- EDIT: availability. data-state can be "open" (green lamp), "limited" (amber) or "closed" (unlit). -->
+        <p class="status" data-state="open"><span class="lamp" aria-hidden="true"></span>Open to director roles in solutions and forward-deployed engineering, and to consulting work.</p>
+      </div>
+
+      <!-- The cord board. Labelled jacks are links to sections; the second row is for play.
+           data-patch lists the jacks that cords plug into when the page loads (comma-separated). -->
+      <figure class="hero__board" aria-hidden="true">
+        <div class="board" data-board data-patch="Work">
+          <span class="board__screw"></span><span class="board__screw"></span>
+          <div class="board__field">
+            <div class="board__row">
+              <a class="jack" href="#work" tabindex="-1" data-jack="Work"><span class="jack__label">Work</span><span class="jack__lamp"></span><span class="jack__socket"></span></a>
+              <a class="jack" href="#writing" tabindex="-1" data-jack="Writing"><span class="jack__label">Writing</span><span class="jack__lamp"></span><span class="jack__socket"></span></a>
+              <a class="jack" href="#projects" tabindex="-1" data-jack="Projects"><span class="jack__label">Projects</span><span class="jack__lamp"></span><span class="jack__socket"></span></a>
+              <a class="jack" href="#elsewhere" tabindex="-1" data-jack="Elsewhere"><span class="jack__label">Elsewhere</span><span class="jack__lamp"></span><span class="jack__socket"></span></a>
+              <a class="jack" href="#contact" tabindex="-1" data-jack="Contact"><span class="jack__label">Contact</span><span class="jack__lamp"></span><span class="jack__socket"></span></a>
+            </div>
+            <div class="board__row board__row--spare">
+              <span class="jack" data-jack="514"><span class="jack__label">514</span><span class="jack__lamp"></span><span class="jack__socket"></span></span>
+              <span class="jack" data-jack="438"><span class="jack__label">438</span><span class="jack__lamp"></span><span class="jack__socket"></span></span>
+              <span class="jack" data-jack="263"><span class="jack__label">263</span><span class="jack__lamp"></span><span class="jack__socket"></span></span>
+              <span class="jack" data-jack="450"><span class="jack__label">450</span><span class="jack__lamp"></span><span class="jack__socket"></span></span>
+              <span class="jack" data-jack="579"><span class="jack__label">579</span><span class="jack__lamp"></span><span class="jack__socket"></span></span>
+            </div>
+          </div>
+          <div class="board__shelf">
+            <span class="board__hole" data-cord="red"></span>
+            <span class="board__hole" data-cord="ivory"></span>
+            <span class="board__hole" data-cord="black"></span>
+          </div>
+          <svg class="board__wires" data-wires xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+        <figcaption class="board__readout" data-readout>Pull a cord up and plug it into a jack.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ Work ============ -->
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="wrap section__grid">
+        <header class="section__head">
+          <h2 class="section__title" id="work-title">Work</h2>
+        </header>
+        <div class="section__body">
+          <!-- EDIT: a short professional bio. -->
+          <p class="section__intro">I’ve built software for nearly twenty years and led engineering teams for six of them. Most of that work sits where customers meet the product: messaging platforms, help desks and contact centers, and now the AI arriving inside them. I do my best work close to customers, and I write the guides and sample code that help them succeed.</p>
+
+          <h3 class="subhead">Case studies</h3>
+          <!-- EDIT: one row per case study. Each links to a page made from work/example-case-study.html. -->
+          <ul class="rows">
+            <li class="row">
+              <h4 class="row__title"><a href="work/example-case-study.html">Live call transcripts in the ticket</a></h4>
+              <p class="row__when">2026</p>
+              <span class="socket" aria-hidden="true"></span>
+              <p class="row__summary">Real-time transcription and AI extraction that fill in ticket fields while the customer is still on the phone.</p>
+              <p class="row__meta">Amazon Connect, Contact Lens, Amazon Bedrock, Zendesk</p>
+            </li>
+            <li class="row">
+              <h4 class="row__title"><a href="work/example-case-study.html">Support platform to workforce management</a></h4>
+              <p class="row__when">2026</p>
+              <span class="socket" aria-hidden="true"></span>
+              <p class="row__summary">Middleware that keeps agent activity flowing into scheduling, with an end-of-day reconciliation so the numbers always add up.</p>
+              <p class="row__meta">AWS Lambda, Node.js, WFM and CRM APIs</p>
+            </li>
+            <li class="row">
+              <h4 class="row__title"><a href="work/example-case-study.html">Help desk migration</a></h4>
+              <p class="row__when">2025</p>
+              <span class="socket" aria-hidden="true"></span>
+              <p class="row__summary">Moving a support operation from Freshdesk to Zendesk: the data, the workflows and the phone integration around them.</p>
+              <p class="row__meta">Zendesk, Workato, Amazon Connect</p>
+            </li>
+          </ul>
+
+          <h3 class="subhead">Roles</h3>
+          <!-- EDIT: most recent first. -->
+          <ol class="timeline">
+            <li class="timeline__item">
+              <p class="timeline__years">20XX – now</p>
+              <p class="timeline__role">Senior engineering consultant</p>
+              <p class="timeline__org"><a href="https://dev3b.com">dev3b.com</a></p>
+            </li>
+            <li class="timeline__item">
+              <p class="timeline__years">20XX – 20XX</p>
+              <p class="timeline__role">Staff engineer</p>
+              <p class="timeline__org">Company name</p>
+            </li>
+            <li class="timeline__item">
+              <p class="timeline__years">20XX – 20XX</p>
+              <p class="timeline__role">Senior engineering manager</p>
+              <p class="timeline__org">Company name</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Writing ============ -->
+    <section class="section" id="writing" aria-labelledby="writing-title">
+      <div class="wrap section__grid">
+        <header class="section__head">
+          <h2 class="section__title" id="writing-title">Writing</h2>
+        </header>
+        <div class="section__body">
+          <p class="section__intro">Guides, notes and the occasional video, mostly about contact centers, integrations and running technical teams.</p>
+          <!-- EDIT: newest first. Each links to a page made from writing/example-note.html. -->
+          <ul class="rows rows--writing">
+            <li class="row">
+              <h3 class="row__title"><a href="writing/example-note.html">Getting live call transcripts into ticket fields</a></h3>
+              <p class="row__when"><time datetime="2026-11">Nov 2026</time></p>
+              <span class="socket" aria-hidden="true"></span>
+              <p class="row__meta">Guide, 12 minutes</p>
+            </li>
+            <li class="row">
+              <h3 class="row__title"><a href="writing/example-note.html">What forward-deployed engineers actually do all day</a></h3>
+              <p class="row__when"><time datetime="2026-10">Oct 2026</time></p>
+              <span class="socket" aria-hidden="true"></span>
+              <p class="row__meta">Note, 6 minutes</p>
+            </li>
+            <li class="row">
+              <h3 class="row__title"><a href="writing/example-note.html">Single sign-on and user provisioning from Entra ID to Zendesk</a></h3>
+              <p class="row__when"><time datetime="2026-09">Sep 2026</time></p>
+              <span class="socket" aria-hidden="true"></span>
+              <p class="row__meta">Guide, 15 minutes</p>
+            </li>
+            <li class="row">
+              <h3 class="row__title"><a href="writing/example-note.html">Reconciling end-of-day workforce data</a></h3>
+              <p class="row__when"><time datetime="2026-08">Aug 2026</time></p>
+              <span class="socket" aria-hidden="true"></span>
+              <p class="row__meta">Video, 9 minutes</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Projects ============ -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="wrap section__grid">
+        <header class="section__head">
+          <h2 class="section__title" id="projects-title">Projects</h2>
+        </header>
+        <div class="section__body">
+          <p class="section__intro">Things I make to learn something, or because I want them to exist.</p>
+          <!-- EDIT: swap any cover <svg> for <img src="assets/img/your-screenshot.jpg" alt=""> (4:3 works best). -->
+          <ul class="projects">
+            <li class="project">
+              <div class="project__cover">
+                <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false">
+                  <defs><pattern id="cover-dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r="1.6" fill="#EFE9D8" opacity=".22"/></pattern></defs>
+                  <rect width="400" height="300" fill="#1D2520"/>
+                  <rect width="400" height="300" fill="url(#cover-dots)"/>
+                  <g fill="#F7B538"><circle cx="232" cy="72" r="2.6"/><circle cx="248" cy="72" r="2.6"/><circle cx="264" cy="88" r="2.6"/><circle cx="280" cy="88" r="2.6"/><circle cx="296" cy="104" r="2.6"/><circle cx="312" cy="104" r="2.6"/><circle cx="328" cy="120" r="2.6"/><circle cx="344" cy="120" r="2.6"/></g>
+                  <text x="28" y="264" class="cover__numeral">206</text>
+                </svg>
+              </div>
+              <h3 class="project__title"><a href="bones/">206 Bones</a></h3>
+              <p class="project__summary">A 3D anatomy puzzle. Turn the body, then drag all 206 bones into place until each one snaps in.</p>
+              <p class="project__meta">three.js, Vite, runs entirely in the browser</p>
+              <p class="project__links"><a href="bones/">Play it</a><a href="#">Source code</a></p>
+            </li>
+            <li class="project">
+              <div class="project__cover">
+                <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false">
+                  <rect width="400" height="300" fill="#D3D9D1"/>
+                  <g>
+                    <rect x="52" y="54" width="296" height="52" rx="10" fill="#EEF1EC"/>
+                    <circle cx="80" cy="80" r="7" fill="#2F8550"/>
+                    <rect x="100" y="70" width="168" height="7" rx="3.5" fill="#1D2520" opacity=".75"/>
+                    <rect x="100" y="84" width="104" height="6" rx="3" fill="#1D2520" opacity=".3"/>
+                    <rect x="52" y="124" width="296" height="52" rx="10" fill="#EEF1EC"/>
+                    <circle cx="80" cy="150" r="7" fill="#F7B538"/>
+                    <rect x="100" y="140" width="132" height="7" rx="3.5" fill="#1D2520" opacity=".75"/>
+                    <rect x="100" y="154" width="150" height="6" rx="3" fill="#1D2520" opacity=".3"/>
+                    <rect x="52" y="194" width="296" height="52" rx="10" fill="#EEF1EC"/>
+                    <circle cx="80" cy="220" r="7" fill="#B4232C"/>
+                    <rect x="100" y="210" width="184" height="7" rx="3.5" fill="#1D2520" opacity=".75"/>
+                    <rect x="100" y="224" width="86" height="6" rx="3" fill="#1D2520" opacity=".3"/>
+                  </g>
+                </svg>
+              </div>
+              <h3 class="project__title"><a href="#">Ticket triage harness</a></h3>
+              <p class="project__summary">A self-hosted assistant that reads a Zendesk queue, sorts the tickets and drafts the work for each one.</p>
+              <p class="project__meta">Python, Amazon Bedrock, Zendesk API</p>
+              <p class="project__links"><a href="#">Source code</a></p>
+            </li>
+            <li class="project">
+              <div class="project__cover">
+                <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false">
+                  <rect width="400" height="300" fill="#CBD3CB"/>
+                  <path d="M0 196 L64 150 L118 182 L184 118 L246 176 L300 140 L400 198 L400 300 L0 300 Z" fill="#9FAEA3"/>
+                  <path d="M0 236 L90 204 L170 232 L262 196 L338 226 L400 210 L400 300 L0 300 Z" fill="#7E8F84"/>
+                  <g fill="none" stroke="#1D2520" stroke-width="3" stroke-linecap="round">
+                    <circle cx="200" cy="150" r="30"/>
+                    <path d="M200 104 V128 M200 172 V196 M154 150 H178 M222 150 H246"/>
+                  </g>
+                  <circle cx="200" cy="150" r="3.5" fill="#B4232C"/>
+                </svg>
+              </div>
+              <h3 class="project__title"><a href="#">A small shooter in Godot</a></h3>
+              <p class="project__summary">A multiplayer first-person shooter, built to learn Godot 4 and how game networking works.</p>
+              <p class="project__meta">Godot 4, GDScript</p>
+              <p class="project__links"><a href="#">Source code</a></p>
+            </li>
+            <li class="project">
+              <div class="project__cover">
+                <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false">
+                  <rect width="400" height="300" fill="#1D2520"/>
+                  <g transform="translate(120 70)">
+                    <rect width="160" height="160" fill="#7A5434"/>
+                    <rect width="160" height="40" fill="#5E9B4B"/>
+                    <rect x="20" y="40" width="20" height="20" fill="#5E9B4B"/><rect x="80" y="40" width="20" height="20" fill="#5E9B4B"/><rect x="120" y="40" width="20" height="20" fill="#5E9B4B"/>
+                    <rect x="40" width="20" height="20" fill="#6FAE58"/><rect x="100" y="20" width="20" height="20" fill="#4C8A3D"/><rect x="140" width="20" height="20" fill="#4C8A3D"/>
+                    <rect x="20" y="80" width="20" height="20" fill="#8C6440"/><rect x="100" y="100" width="20" height="20" fill="#6B4A2E"/><rect x="60" y="120" width="20" height="20" fill="#8C6440"/><rect x="120" y="140" width="20" height="20" fill="#6B4A2E"/><rect y="140" width="20" height="20" fill="#6B4A2E"/><rect x="140" y="80" width="20" height="20" fill="#8C6440"/>
+                  </g>
+                </svg>
+              </div>
+              <h3 class="project__title"><a href="#">Minecraft mods</a></h3>
+              <p class="project__summary">Small Fabric mods for Minecraft Java Edition, written with an AI pair programmer.</p>
+              <p class="project__meta">Java, Fabric</p>
+              <p class="project__links"><a href="#">Source code</a></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Elsewhere ============ -->
+    <section class="section" id="elsewhere" aria-labelledby="elsewhere-title">
+      <div class="wrap section__grid">
+        <header class="section__head">
+          <h2 class="section__title" id="elsewhere-title">Elsewhere</h2>
+        </header>
+        <div class="section__body">
+          <p class="section__intro">Away from the keyboard, most of what I do is about contact of another kind.</p>
+          <!-- EDIT: keep, cut or rewrite any of these. -->
+          <dl class="elsewhere">
+            <div class="elsewhere__item">
+              <dt>Contact improvisation</dt>
+              <dd>A dance built on shared weight, momentum and listening through touch. I go to jams, including the Ontario Regional Contact Jam.</dd>
+            </div>
+            <div class="elsewhere__item">
+              <dt>Massage therapy</dt>
+              <dd>I’m training at Lotus Palm in Montréal.</dd>
+            </div>
+            <div class="elsewhere__item">
+              <dt>Connection</dt>
+              <dd>I practise Focusing and have taken several of Art of Accomplishment’s courses, including the Connection Course.</dd>
+            </div>
+            <div class="elsewhere__item">
+              <dt>Tabletop</dt>
+              <dd>Blood Angels for Warhammer 40,000 and Kill Team, a lot of miniature painting, and Magic: The Gathering at Montréal game stores.</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap section__grid">
+        <header class="section__head">
+          <h2 class="section__title" id="contact-title">Contact</h2>
+        </header>
+        <div class="section__body">
+          <p class="section__intro">Email is the best way to reach me. I reply within a couple of working days.</p>
+          <p class="contact__email"><a href="mailto:anastasi@dev3b.com">anastasi@dev3b.com</a></p>
+          <ul class="contact__links">
+            <li><a href="https://www.linkedin.com/in/spasiu">LinkedIn</a></li>
+            <li><a href="https://github.com/spasiu">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/spasiu">CV</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>© <span data-year>2026</span> Anastasi Bakolias</p>
+      <!-- data-tz takes any IANA time zone; Montréal shares America/Toronto. -->
+      <p>It’s <time data-clock data-tz="America/Toronto">morning</time> in Montréal.</p>
+      <p>Made by hand. No tracking. <a href="#top">Back to top</a></p>
+    </div>
+  </footer>
 </body>
 </html>

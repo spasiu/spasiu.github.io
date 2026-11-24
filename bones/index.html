@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>206 Bones</title>
+  <meta name="description" content="Rebuild a human skeleton: drag each of the 206 bones to its place in the body.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23133029'/%3E%3Cpath d='M9 9a3 3 0 0 1 5 1l8 8a3 3 0 1 1 1 5 3 3 0 1 1-5-1l-8-8a3 3 0 1 1-1-5z' fill='%23ece4cf'/%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..700&amp;family=EB+Garamond:ital,wght@1,500&amp;display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/app-BgRJ1sgR.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DirC_J8b.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="bar">
+      <p class="tally" aria-live="polite">
+        <span class="tally-count" id="tally-count">0</span>
+        <span class="tally-rest">of <span id="tally-total">206</span> bones in place</span>
+      </p>
+      <button class="btn" id="open-options" type="button">Options</button>
+      <div class="progress" id="progress" role="progressbar" aria-label="Bones in place" aria-valuemin="0" aria-valuemax="206" aria-valuenow="0"><i id="progress-fill"></i></div>
+    </header>
+
+    <main class="stage" id="stage">
+      <canvas id="view" tabindex="0" aria-label="The body. Drag to turn it, pinch or scroll to zoom, hold Space and drag to slide it."></canvas>
+
+      <nav class="views" id="views" aria-label="Turn the body to a standard view">
+        <button type="button" data-view="front">Front</button>
+        <button type="button" data-view="back">Back</button>
+        <button type="button" data-view="left">Left</button>
+        <button type="button" data-view="right">Right</button>
+      </nav>
+
+      <section class="inspector" id="inspector" aria-label="Bone in hand" hidden>
+        <div class="label">
+          <div aria-live="polite">
+            <h2 class="bone-name" id="bone-name"></h2>
+            <p class="bone-latin" id="bone-latin" lang="la"></p>
+            <p class="bone-len" id="bone-len"></p>
+            <p class="bone-note" id="bone-note" hidden>A simplified stand-in. This bone is missing from the scan data.</p>
+            <p class="bone-tip" id="bone-tip"></p>
+          </div>
+          <details class="about" id="about" hidden>
+            <summary>About this bone</summary>
+            <p class="about-text" id="about-text"></p>
+            <a class="about-link" id="about-link" href="https://en.wikipedia.org/" target="_blank" rel="noopener noreferrer">Read more on Wikipedia</a>
+          </details>
+        </div>
+        <div class="lens" id="lens" role="img" aria-label="Bone viewer. Drag inside to tumble the bone, drag the rim to spin it, double-tap to reset. This only changes how you see it.">
+          <canvas id="lens-canvas"></canvas>
+          <svg class="rim" id="rim" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3.2" stroke-dasharray="0.7 7.329" opacity=".7"/>
+            <circle cx="50" cy="50" r="44.6" fill="none" stroke="currentColor" stroke-width="6" stroke-dasharray="1 22.352"/>
+          </svg>
+        </div>
+        <div class="actions">
+          <button class="btn" id="hint" type="button">Show me where</button>
+          <button class="btn" id="back" type="button">Put it back</button>
+        </div>
+      </section>
+
+      <p class="coach" id="coach" hidden>Pull a bone out of the drawer and into the body.</p>
+      <div class="beacon" id="beacon" hidden></div>
+      <div class="locator" id="locator" hidden></div>
+      <div class="set-label" id="set-label" hidden></div>
+
+      <section class="done" id="done" hidden>
+        <h2>All 206 bones are in place</h2>
+        <p id="done-summary"></p>
+        <button class="btn btn-solid" id="again" type="button">Start again</button>
+      </section>
+
+      <div class="loading" id="loading" role="status">
+        <p id="loading-text">Laying out 206 bones</p>
+        <div class="loading-track"><i id="loading-bar"></i></div>
+      </div>
+    </main>
+
+    <aside class="drawer" id="drawer" aria-label="Drawer of bones">
+      <div class="chips" id="chips" role="group" aria-label="Show bones from"></div>
+      <div class="cells" id="cells"></div>
+      <p class="drawer-empty" id="drawer-empty" hidden></p>
+    </aside>
+  </div>
+
+  <dialog class="sheet" id="options" aria-labelledby="options-title">
+    <div class="sheet-body">
+      <header class="sheet-head">
+        <h2 id="options-title">Options</h2>
+        <button class="btn" id="close-options" type="button">Done</button>
+      </header>
+
+      <section>
+        <h3>How close a bone has to be</h3>
+        <div class="modes" id="modes"></div>
+      </section>
+
+      <section>
+        <label class="toggle">
+          <input type="checkbox" id="names">
+          <span><strong>Show bone names</strong><small>Turn this off to identify each bone by its shape. A bone's name and description appear once it is in place.</small></span>
+        </label>
+      </section>
+
+      <section>
+        <h3>Handling</h3>
+        <ul class="howto">
+          <li>Drag a bone out of the drawer and into the body. On a touch screen, pull it across the drawer toward the body, or hold it for a moment and then drag it anywhere.</li>
+          <li>The drawer pictures each region's bones to one scale, so a big bone looks big. A magnifier beside a size marks a bone drawn larger so you can see it.</li>
+          <li>A bone turns itself to fit the body as it leaves the drawer, so only where it goes is up to you.</li>
+          <li>To look at the bone in hand from any side, turn it in the round viewer: drag inside to tumble it, drag the rim to spin it, double-tap to turn it back. The arrow keys and [ ] do the same. This never changes how it sits in the body.</li>
+          <li>Drag anywhere to turn the body, and flick to keep it turning. It stays upright however far you go.</li>
+          <li>Pinch or scroll to zoom. On a trackpad, swipe sideways with two fingers to turn the body.</li>
+          <li>To slide the body across the view, drag with two fingers on a touch screen, or with the right button, or hold Space and drag. To roll the view, twist two fingers or hold Alt and drag.</li>
+          <li>With a bone in hand, a tap on the body puts it on that spot. With nothing in hand, a tap on a set bone names it. Double-tap to zoom in.</li>
+          <li>Open About this bone, under the name of the bone in hand, for a short description and a link to its Wikipedia article.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Saving</h3>
+        <p class="quiet" id="save-note"></p>
+      </section>
+
+      <section>
+        <h3>Start again</h3>
+        <p class="quiet" id="restart-note"></p>
+        <button class="btn" id="restart" type="button">Start again</button>
+        <div class="confirm" id="restart-confirm" hidden>
+          <button class="btn btn-solid" id="restart-yes" type="button">Clear the body and start again</button>
+          <button class="btn" id="restart-no" type="button">Keep going</button>
+        </div>
+      </section>
+
+      <section>
+        <h3>About the models</h3>
+        <p class="quiet">Bone and body shapes: <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html" target="_blank" rel="noopener noreferrer">BodyParts3D</a>, © The Database Center for Life Science, licensed under CC Attribution 4.0 International. The meshes were simplified for the web, the coccyx was separated from the sacrum, teeth are attached to their jaws, and the body surface was smoothed into a neutral figure and eased outward by up to 4 mm where a bone would otherwise touch it. Bones are life-size relative to the body. Drawer pictures are to scale within each region.</p>
+        <p class="quiet">The six ear ossicles are not part of that dataset. The ones here are simplified stand-ins modelled for this app.</p>
+        <h3>About the descriptions</h3>
+        <p class="quiet">Each bone's description is a short summary written for this app from its article on the English Wikipedia, which the link under it opens.</p>
+      </section>
+    </div>
+  </dialog>
+
+  <canvas class="ghost" id="ghost" hidden></canvas>
+</body>
+</html>

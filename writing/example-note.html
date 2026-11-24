@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TEMPLATE: copy this file, rename it (e.g. writing/entra-sso.html), then edit everything marked EDIT. -->
+  <!-- EDIT: page title and description -->
+  <title>How to add a note to this site — Anastasi Bakolias</title>
+  <meta name="description" content="Notes are plain HTML pages. Copy this one, change the words, and link to it from the Writing list.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#E3E7E1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141A17" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script>
+    (function () { try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {} })();
+  </script>
+  <script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead" data-masthead>
+    <div class="wrap masthead__inner">
+      <a class="masthead__name" href="../">Anastasi Bakolias</a>
+      <nav class="masthead__nav" aria-label="Sections">
+        <ul>
+          <li><a href="../#work"><span class="lamp" aria-hidden="true"></span>Work</a></li>
+          <li><a href="../#writing" class="is-current" aria-current="true"><span class="lamp" aria-hidden="true"></span>Writing</a></li>
+          <li><a href="../#projects"><span class="lamp" aria-hidden="true"></span>Projects</a></li>
+          <li><a href="../#elsewhere"><span class="lamp" aria-hidden="true"></span>Elsewhere</a></li>
+          <li><a href="../#contact"><span class="lamp" aria-hidden="true"></span>Contact</a></li>
+        </ul>
+      </nav>
+      <button class="lights" type="button" data-theme-toggle>Lights off</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="wrap article">
+      <a class="article__back" href="../#writing">All writing</a>
+
+      <!-- EDIT: title and a one-sentence summary. -->
+      <h1 class="article__title">How to add a note to this site</h1>
+      <p class="article__lede">Notes are plain HTML pages. Copy this one, change the words, and link to it from the Writing list on the home page.</p>
+
+      <div class="article__grid">
+        <aside class="article__aside" aria-label="About this note">
+          <!-- EDIT: date (keep the datetime attribute in YYYY-MM-DD), kind and reading time. -->
+          <dl class="facts">
+            <div><dt>Published</dt><dd><time datetime="2026-11-24">24 November 2026</time></dd></div>
+            <div><dt>Kind</dt><dd>Guide</dd></div>
+            <div><dt>Reading time</dt><dd>3 minutes</dd></div>
+          </dl>
+        </aside>
+
+        <div class="prose">
+          <h2>Make the page</h2>
+          <ol>
+            <li>Copy <code>writing/example-note.html</code> and rename the copy. Use lowercase words joined by hyphens, because the file name becomes the address: <code>writing/entra-sso.html</code>.</li>
+            <li>Change the <code>&lt;title&gt;</code> and the description at the top of the file. They show in search results and link previews.</li>
+            <li>Replace the title, the facts and the text. Everything you need is in the HTML elements already on this page.</li>
+          </ol>
+
+          <h2>Link to it</h2>
+          <p>Add a row to the Writing list in <code>index.html</code>, newest first:</p>
+<pre><code>&lt;li class="row"&gt;
+  &lt;h3 class="row__title"&gt;&lt;a href="writing/entra-sso.html"&gt;Your title&lt;/a&gt;&lt;/h3&gt;
+  &lt;p class="row__when"&gt;&lt;time datetime="2026-12"&gt;Dec 2026&lt;/time&gt;&lt;/p&gt;
+  &lt;span class="socket" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;p class="row__meta"&gt;Guide, 8 minutes&lt;/p&gt;
+&lt;/li&gt;</code></pre>
+
+          <h2>What you can use</h2>
+          <p>Long-form pages are styled for the usual writing elements, so you can use them as they are.</p>
+          <table>
+            <thead><tr><th scope="col">Element</th><th scope="col">Use it for</th></tr></thead>
+            <tbody>
+              <tr><td><code>h2</code>, <code>h3</code></td><td>Sections and subsections</td></tr>
+              <tr><td><code>ul</code>, <code>ol</code></td><td>Lists and numbered steps</td></tr>
+              <tr><td><code>pre</code> and <code>code</code></td><td>Code blocks and inline code</td></tr>
+              <tr><td><code>blockquote</code></td><td>Quotes</td></tr>
+              <tr><td><code>figure</code> and <code>figcaption</code></td><td>Images, diagrams and video, with a caption</td></tr>
+              <tr><td><code>aside class="callout"</code></td><td>A tip or a warning</td></tr>
+            </tbody>
+          </table>
+
+          <aside class="callout" aria-label="Tip">
+            <p><strong>Tip:</strong> titles that say what the reader will be able to do get read. “Getting live call transcripts into ticket fields” does more work than “Thoughts on transcription”.</p>
+          </aside>
+
+          <h3>Images and video</h3>
+          <p>Put image files in <code>assets/img/</code> and always write <code>alt</code> text that says what the image shows. For a video, put the player inside a <code>figure</code> and add a caption that says what it covers and how long it runs.</p>
+
+          <blockquote>
+            <p>A quote looks like this. Keep quotes short and say who said them.</p>
+          </blockquote>
+        </div>
+      </div>
+
+      <p class="article__next"><a href="../#writing">Back to all writing</a></p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>© <span data-year>2026</span> Anastasi Bakolias</p>
+      <p>It’s <time data-clock data-tz="America/Toronto">morning</time> in Montréal.</p>
+      <p>Made by hand. No tracking. <a href="#main">Back to top</a></p>
+    </div>
+  </footer>
+</body>
+</html>

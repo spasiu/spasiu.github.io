@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- GitHub Pages serves this page for any address that doesn't exist, at that address.
+       The <base> makes its links and files load from the site root.
+       EDIT: for a project site (spasiu.github.io/REPO/), change it to href="/REPO/". -->
+  <base href="/">
+  <title>Not in service — Anastasi Bakolias</title>
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#E3E7E1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141A17" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>
+    (function () { try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {} })();
+  </script>
+  <script src="assets/js/site.js" defer></script>
+</head>
+<body>
+  <header class="masthead" data-masthead>
+    <div class="wrap masthead__inner">
+      <a class="masthead__name" href="./">Anastasi Bakolias</a>
+      <nav class="masthead__nav" aria-label="Sections">
+        <ul>
+          <li><a href="./#work"><span class="lamp" aria-hidden="true"></span>Work</a></li>
+          <li><a href="./#writing"><span class="lamp" aria-hidden="true"></span>Writing</a></li>
+          <li><a href="./#projects"><span class="lamp" aria-hidden="true"></span>Projects</a></li>
+          <li><a href="./#elsewhere"><span class="lamp" aria-hidden="true"></span>Elsewhere</a></li>
+          <li><a href="./#contact"><span class="lamp" aria-hidden="true"></span>Contact</a></li>
+        </ul>
+      </nav>
+      <button class="lights" type="button" data-theme-toggle>Lights off</button>
+    </div>
+  </header>
+
+  <main id="main" class="nis">
+    <!-- A disconnected cord hangs from the top. Visitors can grab the plug and swing it. -->
+    <svg class="dangle" data-dangle aria-hidden="true" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="wrap">
+      <div class="nis__text" data-dangle-avoid>
+        <h1 class="nis__title"><span>Not in</span> <span>service</span></h1>
+        <p>There’s no page at this address. Check the spelling, or start again from the home page.</p>
+        <a class="button button--primary" href="./">Go to the home page</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>© <span data-year>2026</span> Anastasi Bakolias</p>
+      <p>It’s <time data-clock data-tz="America/Toronto">morning</time> in Montréal.</p>
+      <p>Made by hand. No tracking.</p>
+    </div>
+  </footer>
+</body>
+</html>

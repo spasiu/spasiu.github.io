@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TEMPLATE: copy this file, rename it (e.g. work/call-transcripts.html), then edit everything marked EDIT. -->
+  <!-- EDIT: page title and description -->
+  <title>Live call transcripts in the ticket — Anastasi Bakolias</title>
+  <meta name="description" content="Case study: real-time transcription and AI extraction that fill in Zendesk ticket fields while the customer is still on the phone.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#E3E7E1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141A17" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script>
+    (function () { try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {} })();
+  </script>
+  <script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead" data-masthead>
+    <div class="wrap masthead__inner">
+      <a class="masthead__name" href="../">Anastasi Bakolias</a>
+      <nav class="masthead__nav" aria-label="Sections">
+        <ul>
+          <li><a href="../#work" class="is-current" aria-current="true"><span class="lamp" aria-hidden="true"></span>Work</a></li>
+          <li><a href="../#writing"><span class="lamp" aria-hidden="true"></span>Writing</a></li>
+          <li><a href="../#projects"><span class="lamp" aria-hidden="true"></span>Projects</a></li>
+          <li><a href="../#elsewhere"><span class="lamp" aria-hidden="true"></span>Elsewhere</a></li>
+          <li><a href="../#contact"><span class="lamp" aria-hidden="true"></span>Contact</a></li>
+        </ul>
+      </nav>
+      <button class="lights" type="button" data-theme-toggle>Lights off</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="wrap article">
+      <a class="article__back" href="../#work">All work</a>
+
+      <!-- EDIT: title, then one or two sentences on the before and after. -->
+      <h1 class="article__title">Live call transcripts in the ticket</h1>
+      <p class="article__lede">Agents used to write up every call after it ended. Now the ticket fills itself in while the customer is still talking.</p>
+
+      <div class="article__grid">
+        <aside class="article__aside" aria-label="Project facts">
+          <!-- EDIT: the facts a reader scans first. Add or remove pairs freely. -->
+          <dl class="facts">
+            <div><dt>Role</dt><dd>Solution architect and lead engineer</dd></div>
+            <div><dt>Client</dt><dd>A contact center (name it if you can)</dd></div>
+            <div><dt>Stack</dt><dd>Amazon Connect, Contact Lens, AWS Lambda, Amazon Bedrock, Zendesk</dd></div>
+            <div><dt>When</dt><dd>2026</dd></div>
+          </dl>
+        </aside>
+
+        <div class="prose">
+          <p>This page is a template, and the text below is advice for writing a case study rather than one. A case study reads well in four parts: the situation, what you built, what changed, and what you’d do differently.</p>
+
+          <h2>The situation</h2>
+          <p>Say who the customer was and what was hard for them, in their terms rather than yours. One paragraph is usually enough. If you can’t name the client, describe them: “a US insurer with 400 agents” tells a reader more than a logo would.</p>
+
+          <h2>What I built</h2>
+          <p>Describe the shape of the solution and the decisions that mattered. A diagram helps. The one below is plain SVG in the page, drawn with the site’s colours, so it follows the lights and stays sharp at any size. Edit the boxes and labels in the HTML.</p>
+
+          <figure>
+            <div class="figure-scroll">
+              <svg class="diagram" viewBox="0 0 720 320" role="img" aria-labelledby="dg-title dg-desc">
+                <title id="dg-title">How a call becomes a filled-in ticket</title>
+                <desc id="dg-desc">A customer call goes into Amazon Connect. Contact Lens streams the transcript to an AWS Lambda function, which asks Amazon Bedrock to pull out fields and writes them to the Zendesk ticket during the call. Connect also opens the ticket for the agent.</desc>
+                <!-- wires -->
+                <path class="wire" d="M156 82 C 186 100, 198 100, 228 82"/>
+                <path class="wire" d="M328 112 C 330 150, 326 170, 328 208"/>
+                <path class="wire" d="M428 238 C 486 254, 478 166, 520 160"/>
+                <path class="wire wire--quiet" d="M428 82 C 492 76, 520 98, 548 130"/>
+                <!-- nodes -->
+                <g class="node"><rect x="24" y="52" width="132" height="60" rx="10"/><text x="42" y="78">Customer</text><text class="sub" x="42" y="97">on the phone</text></g>
+                <g class="node"><rect x="228" y="52" width="200" height="60" rx="10"/><text x="246" y="78">Amazon Connect</text><text class="sub" x="246" y="97">voice and Contact Lens</text></g>
+                <g class="node"><rect x="228" y="208" width="200" height="60" rx="10"/><text x="246" y="234">AWS Lambda</text><text class="sub" x="246" y="253">Bedrock extracts the fields</text></g>
+                <g class="node"><rect x="520" y="130" width="176" height="60" rx="10"/><text x="538" y="156">Zendesk ticket</text><text class="sub" x="538" y="175">filled in during the call</text></g>
+                <!-- jacks where wires meet boxes -->
+                <circle class="jackdot" cx="156" cy="82" r="5"/><circle class="jackdot" cx="228" cy="82" r="5"/>
+                <circle class="jackdot" cx="328" cy="112" r="5"/><circle class="jackdot" cx="328" cy="208" r="5"/>
+                <circle class="jackdot" cx="428" cy="238" r="5"/><circle class="jackdot" cx="520" cy="160" r="5"/>
+                <circle class="jackdot" cx="428" cy="82" r="5"/><circle class="jackdot" cx="548" cy="130" r="5"/>
+              </svg>
+            </div>
+            <figcaption>Red lines carry the call data; the dotted line is the agent’s screen pop. Captions should say what the reader is looking at.</figcaption>
+          </figure>
+
+          <h3>Decisions worth explaining</h3>
+          <ul>
+            <li>Why you chose one service or pattern over another.</li>
+            <li>What you left out on purpose, and why.</li>
+            <li>Where the risk was, and how you reduced it.</li>
+          </ul>
+
+          <h2>What changed</h2>
+          <p>Give numbers if you have them, with a time frame: “after-call work fell from four minutes to under one in the first month.” If you don’t have numbers, describe what people stopped having to do.</p>
+
+          <blockquote>
+            <p>Add a short quote from someone you worked with, with their permission, and credit them underneath.</p>
+          </blockquote>
+
+          <h2>What I’d do differently</h2>
+          <p>One honest paragraph. It shows judgment, and readers who hire tend to read this part closely.</p>
+        </div>
+      </div>
+
+      <p class="article__next"><a href="../#work">Back to all work</a></p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>© <span data-year>2026</span> Anastasi Bakolias</p>
+      <p>It’s <time data-clock data-tz="America/Toronto">morning</time> in Montréal.</p>
+      <p>Made by hand. No tracking. <a href="#main">Back to top</a></p>
+    </div>
+  </footer>
+</body>
+</html>
