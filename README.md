@@ -56,7 +56,7 @@ Copy `work/example-case-study.html` or `writing/example-note.html`, rename the c
 
 ## 206 Bones
 
-`bones/` holds the built 206 Bones game, served at `https://spasiu.github.io/bones/` and linked from the 206 Bones card in Projects. It is the output of `npm run build` in the bones-206 project, copied in as it is. Leave out `_headers`, because GitHub Pages ignores it. The game credits the BodyParts3D anatomy data and its licence under Options.
+`bones/` holds the built 206 Bones game, served at `https://spasiu.github.io/bones/` and linked from the 206 Bones card in Projects. It is the output of `npm run build` in the bones-206 project, copied in as it is. Leave out `_headers`, because GitHub Pages ignores it. The game credits its anatomy data under Options: BodyParts3D (CC BY 4.0) for the bones and most muscles, and Z-Anatomy (CC BY-SA 4.0) for twelve muscles, which puts the muscle file under CC BY-SA 4.0 as a whole.
 
 To update it, rebuild the project, delete `bones/assets/`, and copy in the new `dist/index.html` and `dist/assets/`. The asset file names include a hash of their contents, so old files would otherwise pile up.
 
