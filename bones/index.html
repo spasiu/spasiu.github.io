@@ -7,8 +7,8 @@
   <meta name="description" content="Rebuild a human skeleton: drag each of the 206 bones to its place in the body.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23133029'/%3E%3Cpath d='M9 9a3 3 0 0 1 5 1l8 8a3 3 0 1 1 1 5 3 3 0 1 1-5-1l-8-8a3 3 0 1 1-1-5z' fill='%23ece4cf'/%3E%3C/svg%3E">
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..700&amp;family=EB+Garamond:ital,wght@1,500&amp;display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="./assets/app-Bdpe30TR.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-B-e9F6PN.css">
+  <script type="module" crossorigin src="./assets/app-JTgwGT6O.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BPaPl-f2.css">
 </head>
 <body>
   <div class="app" id="app">
@@ -20,6 +20,7 @@
       <div class="game-switch" id="game-switch" role="radiogroup" aria-label="What to build">
         <button type="button" role="radio" aria-checked="true" data-game="bones">Bones</button>
         <button type="button" role="radio" aria-checked="false" tabindex="-1" data-game="muscles">Muscles</button>
+        <button type="button" role="radio" aria-checked="false" tabindex="-1" data-game="organs">Organs</button>
       </div>
       <button class="btn" id="open-options" type="button">Options</button>
       <div class="progress" id="progress" role="progressbar" aria-label="Bones in place" aria-valuemin="0" aria-valuemax="206" aria-valuenow="0"><i id="progress-fill"></i></div>
@@ -136,6 +137,17 @@
       </section>
 
       <section>
+        <h3>Organs</h3>
+        <ul class="howto">
+          <li>Switch to Organs at the top to fill the body. The skeleton turns see-through, so you can work inside the ribcage and the pelvis. The brain comes by lobes, the lungs by lobes, the heart by chambers and the gut by its parts, along with the glands, the kidneys and bladder, and the great vessels.</li>
+          <li>Each organ has one to three connections: where it joins the next part (the stomach meets the duodenum at the pylorus), a valve, or the hilum where its vessels enter. Each has a handle in its own colour. Drag a handle to where it joins; when it is there the place is named, and when you let go it stays joined.</li>
+          <li>A connection carried close to its spot on screen drops to that spot's depth, so you can join it from any angle. Once every connection is made, the organ settles into place.</li>
+          <li>The panel lists each connection in its colour. On Relaxed, the spots for the organ in hand glow in the same colours, wherever they are in the body. Show me where marks them on any setting.</li>
+          <li>Reproductive organs are not included.</li>
+        </ul>
+      </section>
+
+      <section>
         <h3>Saving</h3>
         <p class="quiet" id="save-note"></p>
       </section>
@@ -158,6 +170,8 @@
         <p class="quiet">Each bone's description is a short summary written for this app from its article on the English Wikipedia, which the link under it opens.</p>
         <h3>About the muscle models</h3>
         <p class="quiet">Muscle shapes come from <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html" target="_blank" rel="noopener noreferrer">BodyParts3D</a> (CC Attribution 4.0) and, for the muscles BodyParts3D does not model (masseter, temporalis, the pterygoids, latissimus dorsi, rectus abdominis, internal oblique, transversus abdominis, quadratus lumborum, multifidus, extensor digitorum brevis and the dorsal interossei of the foot), from <a href="https://github.com/Z-Anatomy/the-blend" target="_blank" rel="noopener noreferrer">Z-Anatomy, the libre 3D atlas of anatomy</a> by Gauthier Kervyn, fitted onto this skeleton. The muscle models as adapted here are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC Attribution-ShareAlike 4.0</a>. Where each muscle attaches was found from where it touches its bones, checked against standard anatomy. Each muscle's description was written for this app; the link under it opens its article on the English Wikipedia.</p>
+        <h3>About the organ models</h3>
+        <p class="quiet">Organ shapes come from <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html" target="_blank" rel="noopener noreferrer">BodyParts3D</a> (CC Attribution 4.0) and, for what BodyParts3D does not model (the lobes of the lungs, the chambers of the heart, the lobes of the cerebrum, the parotid and thyroid glands), from <a href="https://github.com/Z-Anatomy/the-blend" target="_blank" rel="noopener noreferrer">Z-Anatomy, the libre 3D atlas of anatomy</a> by Gauthier Kervyn, fitted onto this skeleton. The cecum and the sigmoid colon were cut from BodyParts3D's ascending and descending colon. The organ models as adapted here are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC Attribution-ShareAlike 4.0</a>. Where each connection goes was found from where the organ meets its neighbour, checked against standard anatomy. Each organ's description was written for this app; the link under it opens its article on the English Wikipedia.</p>
       </section>
     </div>
   </dialog>
