@@ -7,8 +7,8 @@
   <meta name="description" content="Rebuild a human skeleton: drag each of the 206 bones to its place in the body.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23133029'/%3E%3Cpath d='M9 9a3 3 0 0 1 5 1l8 8a3 3 0 1 1 1 5 3 3 0 1 1-5-1l-8-8a3 3 0 1 1-1-5z' fill='%23ece4cf'/%3E%3C/svg%3E">
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..700&amp;family=EB+Garamond:ital,wght@1,500&amp;display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="./assets/app-Cjsh3foS.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BPaPl-f2.css">
+  <script type="module" crossorigin src="./assets/app-DaJzKejS.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BZ4H0Yf4.css">
 </head>
 <body>
   <div class="app" id="app">
@@ -63,6 +63,7 @@
         <div class="actions">
           <button class="btn" id="hint" type="button">Show me where</button>
           <button class="btn" id="back" type="button">Put it back</button>
+          <button class="btn btn-see" id="clear-item" type="button" aria-pressed="false" hidden>See-through</button>
         </div>
       </section>
 
@@ -85,7 +86,10 @@
     </main>
 
     <aside class="drawer" id="drawer" aria-label="Drawer of bones">
-      <div class="chips" id="chips" role="group" aria-label="Show bones from"></div>
+      <div class="drawer-head">
+        <div class="chips" id="chips" role="group" aria-label="Show bones from"></div>
+        <div class="see" id="see" role="group" aria-label="See-through"></div>
+      </div>
       <div class="cells" id="cells"></div>
       <p class="drawer-empty" id="drawer-empty" hidden></p>
     </aside>
@@ -97,6 +101,11 @@
         <h2 id="options-title">Options</h2>
         <button class="btn" id="close-options" type="button">Done</button>
       </header>
+
+      <section>
+        <h3>Body</h3>
+        <div class="modes" id="sexes" role="radiogroup" aria-label="Body"></div>
+      </section>
 
       <section>
         <h3>How close a bone has to be</h3>
@@ -139,12 +148,29 @@
       <section>
         <h3>Organs</h3>
         <ul class="howto">
-          <li>Switch to Organs at the top to fill the body. The skeleton turns see-through, so you can work inside the ribcage and the pelvis. The brain comes by lobes, the lungs by lobes, the heart by chambers and the gut by its parts, along with the glands, the kidneys and bladder, and the great vessels.</li>
+          <li>Switch to Organs at the top to fill the body. The skeleton turns see-through, so you can work inside the ribcage and the pelvis. The brain comes by lobes, the lungs by lobes, the heart by chambers and the gut by its parts, along with the glands, the kidneys and bladder, the great vessels and the reproductive organs of the body chosen under Body.</li>
           <li>Each organ has one to three connections: where it joins the next part (the stomach meets the duodenum at the pylorus), a valve, or the hilum where its vessels enter. Each has a handle in its own colour. Drag a handle to where it joins; when it is there the place is named, and when you let go it stays joined.</li>
           <li>A connection carried close to its spot on screen drops to that spot's depth, so you can join it from any angle.</li>
           <li>Organs keep their shape, so once one connection is made the organ hangs where it belongs, and each of its other connections that comes to rest on its spot joins by itself. With every connection made, the organ settles into place. One left off its spot (on Expert, say) still has its handle: drag it there.</li>
           <li>The panel lists each connection in its colour. On Relaxed, the spots for the organ in hand glow in the same colours, wherever they are in the body. Show me where marks them on any setting.</li>
-          <li>Reproductive organs are not included.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Seeing through</h3>
+        <ul class="howto">
+          <li>See-through, next to the drawer's tabs, makes everything from the tab showing see-through once it is in place, so you can see what is behind and inside. On All it does the whole mode. Press it again to make them solid.</li>
+          <li>To do one at a time, tap something in place and press See-through in its panel.</li>
+          <li>In Muscles and Organs, Bones does the same for the skeleton.</li>
+          <li>A tap on something see-through picks whatever is behind it.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>The two bodies</h3>
+        <ul class="howto">
+          <li>Under Body, Female gives every mode a woman's hip bones, sacrum and coccyx fitted to the same skeleton, the muscles on them, her outline, and her bladder and reproductive organs. What is in place stays in place when you switch.</li>
+          <li>The skeleton is a man's; only the pelvis changes. The vagina and vulva are not modelled.</li>
         </ul>
       </section>
 
@@ -167,12 +193,14 @@
         <h3>About the models</h3>
         <p class="quiet">Bone and body shapes: <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html" target="_blank" rel="noopener noreferrer">BodyParts3D</a>, © The Database Center for Life Science, licensed under CC Attribution 4.0 International. The meshes were simplified for the web, the coccyx was separated from the sacrum, teeth are attached to their jaws, and the body surface was smoothed into a neutral figure and eased outward by up to 4 mm where a bone would otherwise touch it. Bones are life-size relative to the body. Drawer pictures are to scale within each region.</p>
         <p class="quiet">The six ear ossicles are not part of that dataset. The ones here are simplified stand-ins modelled for this app.</p>
+        <h3>About the female body</h3>
+        <p class="quiet">The woman's hip bones, sacrum and coccyx, the hips and breasts of her outline, and her uterus, uterine tubes, ovaries, bladder and mammary glands come from the <a href="https://humanatlas.io/3d-reference-library" target="_blank" rel="noopener noreferrer">Human Reference Atlas 3D Reference Object Library</a> (HuBMAP), licensed under CC Attribution 4.0 International, made from the Visible Human Project female dataset of the U.S. National Library of Medicine. Her pelvis was fitted to this skeleton's hip joints and lowest vertebra, keeping its shape, and scaled with them; her organs keep their place in it. The muscles on the pelvis were carried onto hers, and the man's outline was eased over his genitals.</p>
         <h3>About the descriptions</h3>
         <p class="quiet">Each bone's description is a short summary written for this app from its article on the English Wikipedia, which the link under it opens.</p>
         <h3>About the muscle models</h3>
         <p class="quiet">Muscle shapes come from <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html" target="_blank" rel="noopener noreferrer">BodyParts3D</a> (CC Attribution 4.0) and, for the muscles BodyParts3D does not model (masseter, temporalis, the pterygoids, latissimus dorsi, rectus abdominis, internal oblique, transversus abdominis, quadratus lumborum, multifidus, extensor digitorum brevis and the dorsal interossei of the foot), from <a href="https://github.com/Z-Anatomy/the-blend" target="_blank" rel="noopener noreferrer">Z-Anatomy, the libre 3D atlas of anatomy</a> by Gauthier Kervyn, fitted onto this skeleton. The muscle models as adapted here are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC Attribution-ShareAlike 4.0</a>. Where each muscle attaches was found from where it touches its bones, checked against standard anatomy. Each muscle's description was written for this app; the link under it opens its article on the English Wikipedia.</p>
         <h3>About the organ models</h3>
-        <p class="quiet">Organ shapes come from <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html" target="_blank" rel="noopener noreferrer">BodyParts3D</a> (CC Attribution 4.0) and, for what BodyParts3D does not model (the lobes of the lungs, the chambers of the heart, the lobes of the cerebrum, the parotid and thyroid glands), from <a href="https://github.com/Z-Anatomy/the-blend" target="_blank" rel="noopener noreferrer">Z-Anatomy, the libre 3D atlas of anatomy</a> by Gauthier Kervyn, fitted onto this skeleton. The cecum and the sigmoid colon were cut from BodyParts3D's ascending and descending colon. The organ models as adapted here are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC Attribution-ShareAlike 4.0</a>. Where each connection goes was found from where the organ meets its neighbour, checked against standard anatomy. Each organ's description was written for this app; the link under it opens its article on the English Wikipedia.</p>
+        <p class="quiet">Organ shapes come from <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html" target="_blank" rel="noopener noreferrer">BodyParts3D</a> (CC Attribution 4.0) and, for what BodyParts3D does not model (the lobes of the lungs, the chambers of the heart, the lobes of the cerebrum, the parotid and thyroid glands), from <a href="https://github.com/Z-Anatomy/the-blend" target="_blank" rel="noopener noreferrer">Z-Anatomy, the libre 3D atlas of anatomy</a> by Gauthier Kervyn, fitted onto this skeleton, as is the ductus deferens. The woman's organs are from the Human Reference Atlas, as above. The cecum and the sigmoid colon were cut from BodyParts3D's ascending and descending colon. The organ models as adapted here are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC Attribution-ShareAlike 4.0</a>. Where each connection goes was found from where the organ meets its neighbour, checked against standard anatomy. Each organ's description was written for this app; the link under it opens its article on the English Wikipedia.</p>
       </section>
     </div>
   </dialog>
